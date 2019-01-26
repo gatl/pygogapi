@@ -194,6 +194,21 @@ class GogApi:
     def web_orders_gogdata(self):
         return self.get_gogdata(urls.web("settings.orders"))
 
+    def web_orders_all_gogdata(self, canceled=0, completed=1, in_progress=0,
+                               not_redeemed=1, pending=0, redeemed=1):
+        page_index = 1
+        while True:
+            url = urls.web("settings.orders.args", canceled=canceled,
+                           completed=completed, in_progress=in_progress,
+                           not_redeemed=not_redeemed, page=page_index,
+                           pending=pending, redeemed=redeemed)
+            json_data = self.get_json(url)
+            yield json_data
+            if page_index == json_data['totalPages']:
+                return
+            page_index += 1
+
+
     def web_account_gamedetails(self, game_id):
         return self.get_json(urls.web("account.gamedetails", game_id))
 

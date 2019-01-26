@@ -64,7 +64,8 @@ web_config = {
 
     "wallet": "/wallet",
 
-    "settings.orders": "/orders"
+    "settings.orders": "/orders",
+    "settings.orders.args": "/account/settings/orders/data?canceled={canceled:d}&completed={completed:d}&in_progress={in_progress:d}&not_redeemed={not_redeemed:d}&page={page:d}&pending={pending:d}&redeemed={redeemed:d}"
 }
 
 galaxy_config = {
