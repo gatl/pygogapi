@@ -64,7 +64,7 @@ web_config = {
 
     "wallet": "/wallet",
 
-    "settings.orders": "/orders"
+    "settings.orders": "/account/settings/orders"
 }
 
 galaxy_config = {
